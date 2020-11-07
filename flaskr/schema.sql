@@ -1,17 +1,18 @@
-DROP TABLE IF EXISTS user;
-DROP TABLE IF EXISTS post;
+DROP TABLE IF EXISTS libro;
+DROP TABLE IF EXISTS autor;
 
-CREATE TABLE user (
+CREATE TABLE libro (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
-  username TEXT UNIQUE NOT NULL,
-  password TEXT NOT NULL
+  nombre VARCHAR(45),
+  editorial VARCHAR(45),
+  disponible BOOLEAN,
+  isbn VARCHAR(15)
 );
 
-CREATE TABLE post (
+CREATE TABLE autor (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
-  author_id INTEGER NOT NULL,
-  created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  title TEXT NOT NULL,
-  body TEXT NOT NULL,
-  FOREIGN KEY (author_id) REFERENCES user (id)
+  nombre VARCHAR(45),
+  lang VARCHAR(15),
+  edicion VARCHAR(45),
+  fecha_publicacion DATE
 );
